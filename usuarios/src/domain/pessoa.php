@@ -1,33 +1,61 @@
 <?php
+    require("conexao.php");
 
 class Pessoa{
 
-    private $idPessoa;
-    private $nome;
-    private $telefone;
+    var $idPessoa;
+    var $nome;
+    var $telefone;
 
-    public function getIdPessoa()
+    function getIdPessoa()
     {
         return $this->idPessoa;
     }
-    public function setIdPessoa($id)
+    function setIdPessoa($id)
     {
         $this->idPessoa = $id;
     }
-    public function getNome()
+    function getNome()
     {
         return $this->nome;
     }
-    public function setNome($nom)
+    function setNome($nom)
     {
         $this->nome = $nom;
     }
-    public function getTelefone()
+    function getTelefone()
     {
         return $this->telefone;
     }
-    public function setTelefone($tel)
+    function setTelefone($tel)
     {
         $this->telefone = $tel;
     }
 }
+    class PessoaDAO{
+        //Criação do CRUD
+        
+        function create(){}
+        function readAll(){
+            $pessoas = [];
+            $query = "SELECT * FROM vw_pessoas";
+            try{
+                $con = new Conexao();//$con cria a conexão
+                $resultSet = Conexao::getInstancia()->query($query);
+                while($linha = $resultSet->fetchObject()){
+                    $pessoa = new Pessoa();
+                    $pessoa->setIdPessoa($linha->id_pessoa);
+                    $pessoa->setNome($linha->nome);
+                    $pessoa->setTelefone($linha->telefone);
+                    $pessoas[] = $pessoa;
+                }
+                $con = null;
+            }catch(PDOException $e){
+                $pessoas["erro"] = "Erro ao conectar com BD";
+            }
+
+            return $pessoas;
+        }
+        function update(){}
+        function del(){}
+    }
