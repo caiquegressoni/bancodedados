@@ -79,12 +79,14 @@
 			try{
 				$con = new Conexao();
 				$resultSet = Conexao::getInstancia()->query($query);
-				while($linha = $resultSet->fetchObject()){
-					$pessoa = new Pessoa();
-					$pessoa->setIdPessoa($linha->id_pessoa);
-					$pessoa->setNome($linha->nome);
-					$pessoa->setTelefone($linha->telefone);
-					$pessoas[] = $pessoa;
+				if($resultSet){
+					while($linha = $resultSet->fetchObject()){
+						$pessoa = new Pessoa();
+						$pessoa->setIdPessoa($linha->id_pessoa);
+						$pessoa->setNome($linha->nome);
+						$pessoa->setTelefone($linha->telefone);
+						$pessoas[] = $pessoa;
+					}
 				}
 				$con = null;
 			}catch(PDOException $e){
@@ -117,14 +119,16 @@
 			return $resultado;
 		}
 		function del($id){//Método que exclui dados, pode apresentar erro de fluxo de dados também
-			//Pois, não configuramos o parâmetro "ON DELETE CASCADE" na tabela de telefones no BD
-			//Caso a pessoa possua um ou mais telefones, esta não será excluída
+			//Pois, não configuramos o parâmetro "ON DELETE CASCADE" na tabela de usuários no BD
+			//Se a pessoa tiver um usuário atrelado, esta não pode ser excluída
 			$resultado = [];
 			$query = "DELETE FROM pessoas WHERE id_pessoa=$id";
 			try{
 				$con = new Conexao();
 				if(Conexao::getInstancia()->exec($query)>=1){
-					$resultado["msg"] = "Pessoa Apagada";
+					$resultado["msg"] = "Pessoa excluída com sucesso";
+				} else {
+					$resultado["erro"] = "Esta pessoa não pode ser excluída, pois possui um usuário atrelado.";
 				}
 				$con = null;
 			}catch(PDOException $e){
