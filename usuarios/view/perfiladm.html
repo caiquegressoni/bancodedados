@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="stylesheet" type="text/css" href="menu.css" />
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <title>Perfil de Administrador</title>
 </head>
-<body>
-    
+<body onload="carregarPerfil()">
+
+    <div class="tablep">
+
+        <form method="" action="">
+            
+            <h1>Perfil Adm</h1>
+
+            <label>Nome</label>
+           <input type="text" id="nome" name="nome"/>
+
+            <label>Telefone</label>
+            <input type="text" id="telefone" name="telefone"/>
+
+            <label>Login</label>
+            <input type="text" id="login" name="login"/>
+
+            <label>Senha</label>
+            <td><input type="password" id="senha" name="senha"/></td>
+
+            <label>Corfirme sua Senha</label>
+            <input type="password" name="csenha"/>
+            
+
+            <input type ="button" value = "atualizar">
+            <input type="button" value="Sair" onload="sair()"/>
+
+        </form>
+
+    </div>
+
+    <div id="lateral">
+        <div id="menu">
+                      
+        <h3 class="link-titulo">Tabelas</h3>
+          <ul class="box">					
+            <li><a href="http://localhost/usuarios/view/tbpessoas.html">Tabela de pessoas</a></li>
+            <li><a href="http://localhost/usuarios/view/tbusuario.html">Tabela de usuários</a></li>
+          </ul>
+        
+        </div> <!-- /#menu -->
+        </div id="link">
+
+        <script src="perfiladm.js"></script>
 </body>
 </html>

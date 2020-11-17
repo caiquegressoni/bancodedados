@@ -4,30 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo.css" />
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <title>Perfil</title>
+    <title>Gerenciar</title>
 </head>
 <body onload="carregarPerfil()">
 
-    <div class="tablep">
+    <div class="tablegp">
 
         <form method="" action="">
             
-            <h1>Perfil Cumum</h1>
+            <h1>Gerenciar Pessoas</h1>
+
+            <label>Id</label>
+            <input type="text"  placeholder="Auto" disabled/>
 
             <label>Nome</label>
            <input type="text" id="nome" name="nome"/>
 
             <label>Telefone</label>
-            <input type="text" id="telefones" name="telefone"/>
+            <input type="text" id="telefone" name="telefone"/>
 
-            <label>Senha</label>
-           <input type="password" id="senha" name="senha"/>
-
-            <label>Corfirme sua Senha</label>
-            <input type="password" name="csenha"/>
-
-            <input type ="button" value = "atualizar">
+            <input type ="submit" value = "Criar">
             <input type="button" value="Sair" onload="sair()"/>
 
         </form>

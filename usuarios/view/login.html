@@ -4,10 +4,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <title>Login</title>
 </head>
 <body>
-    <div id="login">
+    <div class="table">
 
             <form method="POST" action="../src/controll/processa.usuario.php">
 
@@ -20,6 +21,11 @@
                 <input type ="submit" value = "acessar">
 
             </form>
+
+            <div class="msg">
+               <p id="mensagem">Mensagens do Sistema</p>
+            </div>
     </div>
+    <script src="login.js"></script>
 </body>
 </html>
