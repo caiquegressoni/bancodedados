@@ -23,10 +23,8 @@
 		$pessoa->setNome($_POST["nome"]);//Preenche o modelo
 		$pessoa->setTelefone($_POST["telefone"]);//Preenche o modelo
 		$sucesso = $pd->create($pessoa);
-		if(!isset($sucesso["erro"])){
+		if(!is_object($sucesso)){
 			http_response_code(201);
-		}else{
-			http_response_code(202);
 		}
 		echo json_encode($sucesso);
 	}
@@ -35,8 +33,16 @@
 		$pessoa = new Pessoa(); //Cria um novo objeto Pessoa (modelo)
 		$pessoa->setIdPessoa($_PUT["id"]);//Preenche o modelo
 		$pessoa->setNome($_PUT["nome"]);//Preenche o modelo
-		$pessoa->setTelefone($_PUT["telefone"]);//Preenche o modelo
-		echo json_encode($pd->update($pessoa));//Executa o método update de DAO passando o modelo como parâmetro
+		if(isset($_PUT["telefone"])){//Se chegar telefone, preenche o modelo
+			$pessoa->setTelefone($_PUT["telefone"]);//Preenche o modelo
+		}
+		$sucesso = $pd->update($pessoa);
+		if(is_object($sucesso)){
+			http_response_code(202);
+		} else {
+			http_response_code(400);
+		}
+		echo json_encode($sucesso);
 	}
 	
 	if(!empty($_DELETE)){ //Se o verbo DELETE não estiver vazio
@@ -49,3 +55,5 @@
 	}
 	
 ?>
+	
+	

@@ -4,33 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo.css" />
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <title>Perfil</title>
 </head>
-<body onload="carregarPerfil()">
+
+<body onload="carregaPerfil()">
 
     <div class="tablep">
 
-        <form method="" action="">
+        <form>
             
             <h1>Perfil Cumum</h1>
 
             <label>Nome</label>
-           <input type="text" id="nome" name="nome"/>
+           <input type="text" id="nome"/>
 
-            <label>Telefone</label>
-            <input type="text" id="telefones" name="telefone"/>
+            <label id="telefones">Telefones</label>
+
+
+            <label>Login</label>
+            <input type="text" id="login" readonly/>
 
             <label>Senha</label>
-           <input type="password" id="senha" name="senha"/>
+           <input type="password" id="senha"/>
 
             <label>Corfirme sua Senha</label>
-            <input type="password" name="csenha"/>
+            <input type="password" id="csenha"/>
 
-            <input type ="button" value = "atualizar">
-            <input type="button" value="Sair" onload="sair()"/>
+            <input type="button" value="Atualizar" onclick="atualizaPerfil('comum')" />
+            <input type="button" value="Sair" onclick="sair()"/>
 
         </form>
+
+        <div class="msg">
+            <p id="mensagem">Mensagens do Sistema</p>
+        </div>
+        
+    </div>
 
     </div>
     <script src="perfiladm.js"></script>

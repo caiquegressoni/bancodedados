@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <title>Perfil de Administrador</title>
 </head>
-<body onload="carregarPerfil()">
+<body onload="carregaPerfil()">
 
     <div class="tablep">
 
@@ -17,26 +17,30 @@
             <h1>Perfil Adm</h1>
 
             <label>Nome</label>
-           <input type="text" id="nome" name="nome"/>
+           <input type="text" id="nome" name ="nome"/>
 
-            <label>Telefone</label>
-            <input type="text" id="telefone" name="telefone"/>
+            <label id="telefones">Telefone</label>
 
             <label>Login</label>
-            <input type="text" id="login" name="login"/>
+            <input type="text" id="login" name="login" readonly/>
 
             <label>Senha</label>
             <td><input type="password" id="senha" name="senha"/></td>
 
             <label>Corfirme sua Senha</label>
-            <input type="password" name="csenha"/>
+            <input type="password" id="csenha"/>
             
 
-            <input type ="button" value = "atualizar">
-            <input type="button" value="Sair" onload="sair()"/>
+            <input type ="button" value = "Atualizar" onclick="atualizaPerfil('adm')">
+            <input type="button" value="Sair" onclick="sair()"/>
 
         </form>
 
+        <div class="msg">
+          <p id="mensagem">Mensagens do Sistema</p>
+      </div>
+  </div>
+  
     </div>
 
     <div id="lateral">

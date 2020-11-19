@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo.css" />
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <title>Gerenciar</title>
 </head>
-<body onload="carregarPerfil()">
+<body onload="carregaUsuario()">
 
-    <div class="tablep">
+    <div class="tablegu">
 
         <form method="" action="">
             
@@ -33,10 +32,14 @@
             </select>
             <br/>
 
-            <input type ="submit" value = "Criar">
-            <input type="button" value="Sair" onload="sair()"/>
+            <input type ="submit" value = "Criar" onclick="criaUsuario()">
+            <input type="button" value="Sair" onclick="sair()"/>
 
         </form>
+
+        <div class="msg">
+            <p id="mensagem">Mensagens do Sistema</p>
+        </div>
 
     </div>
     <script src="perfiladm.js"></script>

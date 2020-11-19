@@ -21,7 +21,7 @@ body{
 }
 .tablep{
     width: 320px;
-    height: 650px;
+    height: 610px;
     border: 2px solid #000;
     border-radius: 80px 0px 80px 0px;
     color: #fff;
@@ -30,11 +30,24 @@ body{
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-    box-sizing: border-box;
+    padding: 68px 28px;
+}
+.tablegu{
+    width: 320px;
+    height: 580px;
+    border: 2px solid #000;
+    border-radius: 80px 0px 80px 0px;
+    color: #fff;
+    background-color: rgba(0, 0, 5, 8);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
     padding: 68px 28px;
 }
 .tablegp{
-    width: 320px;
+    width: 700px;
     height: 515px;
     border: 2px solid #000;
     border-radius: 80px 0px 80px 0px;
@@ -46,6 +59,24 @@ body{
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 68px 28px;
+}
+tr {
+	text-align: center;
+	padding-left:20px;
+}
+
+td {
+    padding:10px;
+}
+
+td [contenteditable="true"] {
+	padding:10px;
+
+}
+
+th {
+	padding:20px;
+
 }
 /*CSS do pefil*/
 h1{
@@ -68,7 +99,12 @@ h1{
     padding: 0;
     font-weight: bold;
 }
-.tablep select{
+.tablegu label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.tablegu select{
     display: block;
     margin: 0;
     width: 100%;
@@ -77,8 +113,8 @@ h1{
     background: transparent;
     border: none;
     margin-bottom: 21px;
-    border-bottom: 1px solid white;
-    color: white;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     font-size: 16px;;
 }
 .tablegp label{
@@ -91,6 +127,10 @@ h1{
     margin-bottom: 21px;
 }
 .tablep input{
+    width: 100%;
+    margin-bottom: 21px;
+}
+.tablegu input{
     width: 100%;
     margin-bottom: 21px;
 }
@@ -116,6 +156,15 @@ h1{
     color: white;
     font-size: 16px;
 }
+.tablegu input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+}
 
 .tablegp input[type="text"], input[type="password"]{
     border: none;
@@ -126,7 +175,7 @@ h1{
     color: white;
     font-size: 16px;;
 }
-.tablep input[type="number"]{
+.tablegu input[type="number"]{
     border: none;
     border-bottom: 1px solid white;
     background: transparent;
@@ -135,12 +184,12 @@ h1{
     color: white;
     font-size: 16px;
 }
-.tablep input[type=number]::-webkit-inner-spin-button, 
+.tablegu input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
 }
-.table input[type="submit"]{
+.table input[type="button"]{
     border: none;
     outline: none;
     height: 35px;
@@ -149,7 +198,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 20px;
     transition: 0.2s;
 }
-.table input[type="submit"]:hover{
+.table input[type="button"]:hover{
     cursor: pointer;
     background:rgb(11, 94, 94);
     transition: 0.2s;
@@ -164,6 +213,20 @@ input[type=number]::-webkit-outer-spin-button {
     transition: 0.2s;
 }
 .tablep input[type="submit"]:hover{
+    cursor: pointer;
+    background:rgb(11, 94, 94);
+    transition: 0.2s;
+}
+.tablegu input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 35px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+.tablegu input[type="submit"]:hover{
     cursor: pointer;
     background:rgb(11, 94, 94);
     transition: 0.2s;
@@ -192,6 +255,20 @@ input[type=number]::-webkit-outer-spin-button {
     transition: 0.2s;
 }
 .tablep input[type="button"]:hover{
+    cursor: pointer;
+    background:rgb(11, 94, 94);
+    transition: 0.2s;
+}
+.tablegu input[type="button"]{
+    border: none;
+    outline: none;
+    height: 35px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+.tablegu input[type="button"]:hover{
     cursor: pointer;
     background:rgb(11, 94, 94);
     transition: 0.2s;

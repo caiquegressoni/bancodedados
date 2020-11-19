@@ -1,8 +1,9 @@
 <?php
 
 $urlFront="http://localhost/usuarios";
-header("Access-Control-Allow-Origin:".$urlFront);
-header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE");
+header("Content-type: application/json; charset=UTF-8"); //Configura a resposta no formato universal JSON
+header("Access-Control-Allow-Origin:".$urlFront);//Configura a origem permitida das requisições
+header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE"); //Configura os verbos http permitidos
 
 $_DELETE = array();
 	$_PUT = array();

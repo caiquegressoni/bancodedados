@@ -6,28 +6,36 @@
     <link rel="stylesheet" type="text/css" href="estilo.css" />
     <title>Gerenciar</title>
 </head>
-<body onload="carregarPerfil()">
+<body onload="carregaPessoas()">
 
-    <div class="tablegp">
+    <div class="tablegp" >
 
-        <form method="" action="">
-            
-            <h1>Gerenciar Pessoas</h1>
-
-            <label>Id</label>
-            <input type="text"  placeholder="Auto" disabled/>
-
-            <label>Nome</label>
-           <input type="text" id="nome" name="nome"/>
-
-            <label>Telefone</label>
-            <input type="text" id="telefone" name="telefone"/>
-
-            <input type ="submit" value = "Criar">
-            <input type="button" value="Sair" onload="sair()"/>
-
-        </form>
-
+        <table>
+            <thead>
+                <tr>
+                    <h1 colspan="4">Gerenciar Pessoas</h1>
+                </tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="bodyPessoas">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Auto</td>
+                    <td><input type="text" placeholder="Nome" id="nomePessoa"></td>
+                    <td><input type="text" placeholder="Telefone" id="telPessoa"></td>
+                    <td><input type="button" value="Criar" onclick="criaPessoa()"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="msg">
+            <p id="mensagem">Mensagens do Sistema</p>
+        </div>
     </div>
     <script src="perfiladm.js"></script>
 </body>
