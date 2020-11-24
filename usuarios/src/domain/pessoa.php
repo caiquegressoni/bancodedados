@@ -137,3 +137,30 @@
 			return $resultado;
 		}
 	}
+
+	class TelefonesDAO{
+
+		function create($telefone){
+			
+			$resultado = array();
+			$query = "INSERT INTO telefones VALUES('".$telefone->getTelefone()."')";
+			try{
+				$con = new Conexao();
+				if(Conexao::getInstancia()->exec($query) >= 1){
+					$resultado["id"] = Conexao::getInstancia()->lastInsertId();
+					$resultado["telefone"] = $telefone->getTelefone();
+					if($telefone->getTelefone()!=null){
+                        $resultado["telefone"] = $telefone->getTelefone();
+                        $query = "INSERT INTO telefones VALUES (".$resultado["id"].",'".$resultado["telefone"]."')";
+                        Conexao::getInstancia()->exec($query);
+                    }
+				}
+				$con = null;
+			}catch(PDOException $e){
+				$resultado["erro"] = "Erro ao conectar ao BD";
+			}
+
+
+		}
+
+	}

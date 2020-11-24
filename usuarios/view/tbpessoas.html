@@ -6,10 +6,10 @@
     <link rel="stylesheet" type="text/css" href="estilo.css" />
     <title>Gerenciar</title>
 </head>
+
 <body onload="carregaPessoas()">
 
     <div class="tablegp" >
-
         <table>
             <thead>
                 <tr>
@@ -26,17 +26,17 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td>Auto</td>
-                    <td><input type="text" placeholder="Nome" id="nomePessoa"></td>
-                    <td><input type="text" placeholder="Telefone" id="telPessoa"></td>
-                    <td><input type="button" value="Criar" onclick="criaPessoa()"></td>
+                    <form>
+                        <td>Auto</td>
+                        <td><input type="text" placeholder="Nome"id="nomePessoa"></td>
+                        <td><input type="text" placeholder="Telefone" id="telPessoa"></td>
+                        <td><input type="submit" value="Criar" onclick="criaPessoa()"></td>
+                    </form>
                 </tr>
             </tfoot>
         </table>
-        <div class="msg">
-            <p id="mensagem">Mensagens do Sistema</p>
-        </div>
     </div>
+
     <script src="perfiladm.js"></script>
 </body>
 </html>

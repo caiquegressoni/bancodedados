@@ -3,7 +3,7 @@
 	$ud = new UsuarioDAO(); //Objeto da classe PessoaDAO para acesso ao Banco de Dados
 
 	include("putdel.php"); //Inclui as variáveis de ambiente $_PUT e $_DELETE
-	
+
 	//Tratar as requisições HTTP REST (GET,POST,PUT,DELETE)
 	if(!empty($_GET)){ //Se o verbo GET não estiver vazio
 		//O id é auto_increment no banco de dados e inicia em 1
@@ -54,3 +54,4 @@
 		$login = $_DELETE["login"];//Recebe o id
 		echo json_encode($ud->del($login));//Executa o método del de DAO passando o login como parâmetro
 	}
+?>

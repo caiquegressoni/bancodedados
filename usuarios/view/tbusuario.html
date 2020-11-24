@@ -6,40 +6,40 @@
     <link rel="stylesheet" type="text/css" href="estilo.css" />
     <title>Gerenciar</title>
 </head>
-<body onload="carregaUsuario()">
+<body onload="carregaUsuarios()">
 
     <div class="tablegu">
 
-        <form method="" action="">
-            
-            <h1>Gerenciar Usuário</h1>
-
-            <label>Id</label>
-           <input type="number" id="id" name="id"/>
-
-            <label>login</label>
-            <input type="text" id="login" name="login"/>
-
-            <label>Senha</label>
-            <td><input type="password" id="senha" name="senha"/></td>
-
-            <label>Tipo</label>
-            <br/>
-            <br/>
-            <select name="tipo">
-                <option value="adm">Admin</option>
-                <option value="comum">Comum</option>
-            </select>
-            <br/>
-
-            <input type ="submit" value = "Criar" onclick="criaUsuario()">
-            <input type="button" value="Sair" onclick="sair()"/>
-
-        </form>
-
-        <div class="msg">
-            <p id="mensagem">Mensagens do Sistema</p>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <h1 colspan="4">Gerenciar Usuários</h1>
+                </tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Login</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="bodyUsuarios">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <form>
+                        <td><input type="number" placeholder="id" id="idUser" style="width:50px"></td>
+                        <td><input type="text" placeholder="login" id="loginUser">
+                            <input type="password" placeholder="senha" id="senhaUser">
+                        </td>
+                        <td><select id="tipoUser">
+                                <option value="adm">Admin</option>
+                                <option value="comum">Comum</option>
+                            </select></td>
+                        <td><input type="submit" value="Criar" onclick="criaUsuario()"></td>
+                    </form>
+                </tr>
+            </tfoot>
+        </table>
 
     </div>
     <script src="perfiladm.js"></script>
