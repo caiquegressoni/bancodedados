@@ -27,18 +27,20 @@
 			$usuario->setTipo($_POST["tipo"]);//Preenche o modelo
 			$status = $ud->create($usuario);
 			if(is_object($status)){
-				http_response_code(201);
+				http_response_code(201); //Código HTTP de criação de dados
+				echo '{"mensagem":"Usuário criado com sucesso"}'; //Mensagem de sucesso JSON
+			} else {
+				echo json_encode($status); //Mensagem de erro JSON
 			}
-			echo json_encode($status);
 		}
 		if(!empty($_POST["login"])&&!empty($_POST["senha"])&&empty($_POST["id"])){
 			$login = $_POST["login"];
 			$senha = $_POST["senha"];
 			$status = $ud->login($login,$senha);
 			if(!is_object($status)){
-				http_response_code(401);			
+				http_response_code(401); //Código HTTP de acesso negado (Senha ou usuario não conferem)
 			}
-			echo json_encode($status);
+			echo json_encode($status); //Mensagem de erro ou dados de login em caso de sucesso
 		}
 	}
 	
@@ -47,11 +49,21 @@
 		$usuario->setLogin($_PUT["login"]);//Preenche o modelo
 		$usuario->setSenha($_PUT["senha"]);//Preenche o modelo
 		$usuario->setTipo($_PUT["tipo"]);//Preenche o modelo
-		echo json_encode($ud->update($usuario));//Executa o método update de DAO passando o modelo como parâmetro
+		$status = $ud->update($usuario); //Executa o método update de DAO passando o modelo como parâmetro
+		if(is_object($status)){ //Se receber um Objeto como retorno é porque a alteração deu certo
+			echo '{"mensagem":"Usuário alterado com sucesso"}'; //Mensagem de sucesso JSON
+		} else {
+			echo json_encode($status); //Se não é objeto, veio uma mensagem de erro JASON
+		}
 	}
 	
 	if(!empty($_DELETE)){ //Se o verbo DELETE não estiver vazio
 		$login = $_DELETE["login"];//Recebe o id
-		echo json_encode($ud->del($login));//Executa o método del de DAO passando o login como parâmetro
+		$status = $ud->del($login); //Executa o método del de DAO passando o login como parâmetro
+		if(is_object($status)){ //Se receber um Objeto como retorno é porque a exclusão deu certo
+			echo '{"mensagem":"Usuário excluído com sucesso"}'; //Mensagem de sucesso JSON
+		} else {
+			echo json_encode($status); //Se não é objeto, veio uma mensagem de erro JASON
+		}
 	}
 ?>
